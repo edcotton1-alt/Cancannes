@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAGE MATCH CANNES — THE MAIN CARD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Spline+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#08070a;--ink-2:#100d12;--steel:#1a161d;--bone:#f6f2e8;--bone-dim:#c2bcae;
+    --gold:#f2c33d;--gold-deep:#9a7414;--blood:#d61f26;--blood-deep:#7d1116;
+    --red:#e8453c;--blue:#2f7ff0;--win:#56e89a;--win-deep:#1f8a55;--line:#2c2630;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,.012) 0 2px, transparent 2px 9px),
+      radial-gradient(1100px 520px at 50% -8%, #2a1d22 0%, transparent 55%),
+      var(--ink);
+    color:var(--bone);font-family:'Oswald',sans-serif;font-weight:300;line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  .anton{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.86}
+
+  .hero{text-align:center;padding:54px 0 34px;border-bottom:2px solid var(--blood)}
+  .promo{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--blood);margin-bottom:14px}
+  .hero h1{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(46px,13vw,156px);line-height:.78;color:var(--bone);text-shadow:0 0 1px #000,4px 4px 0 var(--blood-deep)}
+  .hero h1 em{display:block;font-style:normal;color:var(--gold);text-shadow:0 0 1px #000,4px 4px 0 var(--gold-deep)}
+  .hero .strap{margin-top:18px;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(14px,2.3vw,22px);letter-spacing:.03em;color:var(--bone)}
+  .hero .sub{margin-top:14px;color:var(--bone-dim);font-size:16px;max-width:60ch;margin-left:auto;margin-right:auto;font-weight:400}
+  .hero .meta{margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .hero .meta span{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim);border:1px solid var(--line);padding:6px 12px}
+  .hero .meta b{color:var(--gold)}
+  .reveal-all{margin:24px auto 0;display:inline-flex;align-items:center;gap:9px;background:var(--blood);border:none;color:#fff;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:15px;letter-spacing:.05em;padding:13px 26px;cursor:pointer;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%)}
+  .reveal-all:hover{background:var(--red)}
+
+  .ticker{border-bottom:1px solid var(--line);background:var(--ink-2);padding:16px 0}
+  .ticker .wrap{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+  .ticker div{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--bone-dim)}
+  .ticker b{color:var(--gold);font-weight:500}
+
+  .fight{padding:50px 0 10px;border-bottom:1px solid var(--line)}
+  .fline{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .fline .num{font-family:'Anton',sans-serif;font-size:clamp(30px,6vw,58px);color:var(--blood);line-height:1}
+  .fline .faultline{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+  .ftitle{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(28px,6vw,62px);line-height:.9;color:var(--bone);margin-bottom:6px}
+  .ftitle em{font-style:normal;color:var(--blood)}
+  .why-this{color:var(--bone-dim);font-size:16px;font-weight:400;max-width:70ch;line-height:1.6;margin-bottom:26px}
+  .why-this b{color:var(--bone);font-weight:500}
+
+  .tape{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;border:1px solid var(--line);background:linear-gradient(180deg,var(--steel),var(--ink-2));position:relative}
+  .tape::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line)}
+  @media(max-width:680px){.tape::before{display:none}}
+  .corner{padding:22px 22px;display:flex;flex-direction:column;gap:6px;transition:background .45s ease}
+  .corner.red{border-top:3px solid var(--red)}
+  .corner.blue{border-top:3px solid var(--blue);text-align:right;align-items:flex-end}
+  .ctag{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+  .corner.red .ctag{color:var(--red)} .corner.blue .ctag{color:var(--blue)}
+  .name{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(22px,3.4vw,34px);line-height:.92;color:#fff;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .corner.blue .name{flex-direction:row-reverse}
+  .belt{display:none;font-family:'Anton',sans-serif;font-size:12px;letter-spacing:.06em;color:#06210f;background:var(--win);padding:2px 9px}
+  .affil{font-size:15px;color:var(--bone-dim);font-weight:400;line-height:1.3}
+  .stance{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+  .record{font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--bone-dim);margin-top:6px;letter-spacing:.02em}
+  .center{display:flex;align-items:center;justify-content:center;padding:0 10px;min-width:70px;position:relative;z-index:2}
+  .center .vs{font-family:'Anton',sans-serif;font-size:clamp(24px,4vw,40px);color:var(--blood);text-shadow:1px 1px 0 #000}
+
+  .undercard{border:1px solid var(--line);border-top:none;padding:16px 22px;display:flex;gap:14px;align-items:baseline;background:rgba(0,0,0,.28)}
+  .undercard .lbl{font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);flex:none;padding-top:3px}
+  .undercard .q{font-size:17px;color:var(--bone);font-weight:400;flex:1;line-height:1.45}
+
+  .ringbtn{width:100%;border:none;cursor:pointer;background:var(--blood-deep);color:#fff;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.12em;padding:13px;transition:background .2s ease;display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line);border-top:none}
+  .ringbtn:hover{background:var(--blood)}
+  .ringbtn:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+  .ringbtn .arr{transition:transform .3s ease;font-family:'Oswald',sans-serif}
+
+  .verdict{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.16,1,.3,1)}
+  .fight.open .verdict{max-height:900px}
+  .fight.open .ringbtn{background:#0c2d18;color:var(--win)}
+  .fight.open .ringbtn .arr{transform:rotate(180deg)}
+  .fight.open .corner.winner{background:rgba(86,232,154,.07)}
+  .fight.open .belt.show{display:inline-block;animation:slam .35s cubic-bezier(.2,1.4,.4,1)}
+  @keyframes slam{0%{transform:scale(1.8) rotate(-4deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+
+  .vbody{padding:22px 22px 26px;border:1px solid var(--win-deep);border-top:none;background:rgba(8,7,10,.55)}
+  .decree{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(20px,3vw,32px);color:var(--win);line-height:.95;margin-bottom:5px}
+  .method{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:16px}
+  .cards{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .jc{font-family:'Spline Sans Mono',monospace;font-size:11.5px;border:1px solid var(--line);padding:7px 11px;color:var(--bone-dim);background:rgba(0,0,0,.35)}
+  .jc b{font-weight:500} .jc .r{color:#ff6b62} .jc .b{color:#6aa8ff} .jc .s{color:var(--gold)}
+  .why{font-size:16px;color:var(--bone);line-height:1.65;font-weight:400;margin-bottom:14px}
+  .why b{color:var(--win);font-weight:500} .why i{color:#fff;font-style:italic}
+  .conf{display:inline-block;font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border:1px solid currentColor}
+  .conf.anchor{color:#6fa6ee} .conf.extend{color:var(--gold)} .conf.bet{color:var(--red)}
+
+  @media(max-width:680px){
+    .tape{grid-template-columns:1fr}
+    .corner.blue{text-align:left;align-items:flex-start;border-top:none;border-left:3px solid var(--blue)}
+    .corner.red{border-top:none;border-left:3px solid var(--red)}
+    .corner.blue .name{flex-direction:row}
+    .center{padding:8px 22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .fight.open .verdict{max-height:1400px}
+  }
+
+  footer{margin-top:6px;padding:40px 0 64px;text-align:center}
+  footer .sig{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.2em;color:var(--gold)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="promo">Casting Director · Cage Match Cannes · the main card</div>
+    <h1 class="anton">Four<em>Fights</em></h1>
+    <div class="strap">The bouts Cannes 2026 should have staged</div>
+    <p class="sub">Five hundred speakers on the Croisette. Distilled to the four collisions the industry couldn't stop arguing about — each the two people most genuinely, structurally opposed on it.</p>
+    <div class="meta">
+      <span><b>4</b> fault lines</span>
+      <span><b>4</b> fights</span>
+      <span>no panels · no consensus</span>
+    </div>
+    <button class="reveal-all" id="revealAll"><i class="arr"></i> Reveal all four verdicts</button>
+  </div>
+</div>
+
+<div class="ticker"><div class="wrap">
+  <div><b>Argument</b> — evidence &amp; logic</div>
+  <div><b>Forcing Q</b> — answered or dodged</div>
+  <div><b>The Room</b> — who wins Cannes live</div>
+  <div style="color:var(--bone-dim)">Verdicts are predictions · tap to score</div>
+</div></div>
+
+<!-- FIGHT 1 -->
+<section class="fight" data-win="red"><div class="wrap">
+  <div class="fline"><span class="num anton">01</span><span class="faultline">The Machine</span></div>
+  <h2 class="ftitle">The Brand <em>vs.</em> The Machine</h2>
+  <p class="why-this">The defining argument of the year, in its purest form: the head of a frontier AI lab against the most powerful brand-builder alive, on whether the machine can do the actual job. <b>No other pairing on the roster makes the collision this total</b> — the one who builds the tool vs. the one who spends $10bn a year insisting it isn't enough.</p>
+  <div class="tape">
+    <div class="corner red"><span class="ctag">Red corner</span><div class="name"><span class="belt">DEF.</span>Demis Hassabis</div><div class="affil">Google DeepMind · Co-founder &amp; CEO</div><div class="stance">The Infinite Tool</div><div class="record">Nobel laureate · builds the future</div></div>
+    <div class="center"><span class="vs">VS</span></div>
+    <div class="corner blue"><span class="ctag">Blue corner</span><div class="name">Marc Pritchard<span class="belt">DEF.</span></div><div class="affil">P&G · Chief Brand Officer</div><div class="stance">"Robots Can't Build Brands"</div><div class="record">World's largest ad budget · buys the future</div></div>
+  </div>
+  <div class="undercard"><span class="lbl">Forcing Q</span><span class="q">Your machine can make a million ads by lunch. Pritchard says it can't build one brand. One of you is wrong about what a brand even is — so define it, out loud, and watch the other flinch.</span></div>
+  <button class="ringbtn"><span>Score the bout</span><span class="arr">▾</span></button>
+  <div class="verdict"><div class="vbody">
+    <div class="decree">Hassabis def. Pritchard — split decision</div>
+    <div class="method">Method · argument over the room</div>
+    <div class="cards"><span class="jc">Argument <b class="r">Hassabis</b></span><span class="jc">Forcing Q <b class="b">Pritchard</b></span><span class="jc">The Room <b class="r">Hassabis</b></span></div>
+    <p class="why">Pritchard lands the line of the night — "robots can't build brands" beats anything Hassabis says aloud. But he's defending a wall already moving, and Hassabis disarms him by <b>agreeing</b>: the machine doesn't build the brand, it builds the thousand drafts a human chooses from — and P&amp;G already runs on those tools. The punch has no power behind it because the target conceded the ground years ago. <b>Pritchard wins the quote; Hassabis wins the fight.</b></p>
+    <span class="conf extend">Extended from worldview</span>
+  </div></div>
+</div></section>
+
+<!-- FIGHT 2 -->
+<section class="fight" data-win="red"><div class="wrap">
+  <div class="fline"><span class="num anton">02</span><span class="faultline">The Law</span></div>
+  <h2 class="ftitle">The Data <em>vs.</em> The Faith</h2>
+  <p class="why-this">The fight over whether the work the industry crowns ever reaches a living human — and now Penn gets the opponent he was built to face. Not a fellow data man who'd half-agree, but the <b>high priest of craft himself</b>: the pollster who says the public never saw your masterpiece, against the man who's spent 40 years calling advertising an art form. Numbers against the church of the idea.</p>
+  <div class="tape">
+    <div class="corner red"><span class="ctag">Red corner</span><div class="name"><span class="belt">DEF.</span>Mark Penn</div><div class="affil">Stagwell · Chairman &amp; CEO</div><div class="stance">The Populace</div><div class="record">Polled nations · counts the public</div></div>
+    <div class="center"><span class="vs">VS</span></div>
+    <div class="corner blue"><span class="ctag">Blue corner</span><div class="name">Sir John Hegarty<span class="belt">DEF.</span></div><div class="affil">BBH · Co-founder</div><div class="stance">The Faith</div><div class="record">40 years · the church of the idea</div></div>
+  </div>
+  <div class="undercard"><span class="lbl">Forcing Q</span><span class="q">Hegarty, you've called this an art form your whole life. Penn has the polling that says the public never saw the art — they saw nothing at all. So name the campaign from this festival that a normal person could describe a week later, or admit the gallery's been empty the whole time.</span></div>
+  <button class="ringbtn"><span>Score the bout</span><span class="arr">▾</span></button>
+  <div class="verdict"><div class="vbody">
+    <div class="decree">Penn def. Hegarty — by the numbers he brought</div>
+    <div class="method">Method · argument-led, hostile room</div>
+    <div class="cards"><span class="jc">Argument <b class="r">Penn</b></span><span class="jc">Forcing Q <b class="r">Penn</b></span><span class="jc">The Room <b class="b">Hegarty</b></span></div>
+    <p class="why">Now Penn has a real adversary — not a scientist who'd concede the same point for different reasons, but the most eloquent believer in the room. Hegarty will defend craft so beautifully the audience aches for him to be right; nobody makes the case for the single great idea better. But that's exactly the trap. Penn doesn't argue taste, he argues <i>reach</i> — and he can show that the work Cannes worships is invisible to the people it's supposedly for. Hegarty wins every heart in the building, because the building is full of people who do what he does. <b>Penn wins the one thing the building can't refute: the data that says nobody outside it noticed.</b> The applause goes to the priest; the verdict goes to the pollster.</p>
+    <span class="conf anchor">Anchored to Penn's session</span>
+  </div></div>
+</div></section>
+
+<!-- FIGHT 3 -->
+<section class="fight" data-win="red"><div class="wrap">
+  <div class="fline"><span class="num anton">03</span><span class="faultline">The Soul</span></div>
+  <h2 class="ftitle">Conscience <em>vs.</em> The Bottle</h2>
+  <p class="why-this">What the industry is actually <i>for</i> — staged against a real material adversary, not an abstraction. The designer who built a global brand by refusing the easy, dirty, profitable thing, against the marketing chief of the company that tops the world's plastic-polluter audits year after year and just quietly walked back its own sustainability targets. <b>Not conscience vs. capital in theory — conscience vs. the most beloved disposable object on earth.</b></p>
+  <div class="tape">
+    <div class="corner red"><span class="ctag">Red corner</span><div class="name"><span class="belt">DEF.</span>Stella McCartney</div><div class="affil">Founder &amp; Creative Director</div><div class="stance">The Conscience</div><div class="record">Built a brand on what she won't do</div></div>
+    <div class="center"><span class="vs">VS</span></div>
+    <div class="corner blue"><span class="ctag">Blue corner</span><div class="name">Manolo Arroyo<span class="belt">DEF.</span></div><div class="affil">The Coca-Cola Company · Global CMO</div><div class="stance">The Most Loved Bottle</div><div class="record">World's #1 brand · world's #1 plastic polluter</div></div>
+  </div>
+  <div class="undercard"><span class="lbl">Forcing Q</span><span class="q">Your company is the most-loved brand on the planet and the most-audited plastic polluter on it, and last year it quietly cut its own recycling targets. So tell the room to its face: is "the most loved" worth anything if it's also the most thrown away — and would Stella's brand survive doing what yours does every single second?</span></div>
+  <button class="ringbtn"><span>Score the bout</span><span class="arr">▾</span></button>
+  <div class="verdict"><div class="vbody">
+    <div class="decree">McCartney def. Arroyo — by a mile</div>
+    <div class="method">Method · won the room, won the argument</div>
+    <div class="cards"><span class="jc">Argument <b class="r">McCartney</b></span><span class="jc">Forcing Q <b class="r">McCartney</b></span><span class="jc">The Room <b class="r">McCartney</b></span></div>
+    <p class="why">This is the mismatch the soul of the festival deserves — and the one fight on the card where the better argument and the better room are the <i>same</i> person. Arroyo is a brilliant marketer with an impossible brief: defend the most beloved product on earth while standing on the year it walked back its plastic promises. He'll reach for "scale," "complexity," "collaboration with partners" — the exact language the activists already labelled greenwashing. McCartney doesn't need rhetoric; she needs to point. She built something coveted <i>without</i> the dirty shortcut, which means her existence is the proof his excuses don't need to be true. <b>Arroyo defends the bottle the whole world loves and the ocean is choking on; McCartney just has to ask why those are the same object.</b> No room at a creativity festival scores that for Coke.</p>
+    <span class="conf extend">Extended from worldview</span>
+  </div></div>
+</div></section>
+
+<!-- FIGHT 4 -->
+<section class="fight" data-win="blue"><div class="wrap">
+  <div class="fline"><span class="num anton">04</span><span class="faultline">The Crowd</span></div>
+  <h2 class="ftitle">The Creators <em>vs.</em> The Creatives</h2>
+  <p class="why-this">The festival's deepest fault line, finally in one ring: the two cultures that spent all week eyeing each other across the Croisette. Mann reaches more humans before breakfast than most Grand Prix winners reach in a year — with stories the craft establishment won't call advertising, or even good. Sobhani runs creative for one of the world's most awarded networks and has spent a career on the idea that <b>reach without craft is just noise at scale</b>. Volume's new empire vs. the keepers of the craft.</p>
+  <div class="tape">
+    <div class="corner red"><span class="ctag">Red corner</span><div class="name"><span class="belt">DEF.</span>Dhar Mann</div><div class="affil">Dhar Mann Studios · Founder</div><div class="stance">The Creator</div><div class="record">Billions of views · zero Lions, zero given</div></div>
+    <div class="center"><span class="vs">VS</span></div>
+    <div class="corner blue"><span class="ctag">Blue corner</span><div class="name">Chaka Sobhani<span class="belt">DEF.</span></div><div class="affil">TBWA\Worldwide · Global Chief Creative Officer</div><div class="stance">The Creative</div><div class="record">Runs the craft · holds the Lions</div></div>
+  </div>
+  <div class="undercard"><span class="lbl">Forcing Q</span><span class="q">Mann gets a billion views on work this room would never award. Sobhani gives Lions to work most of those billion will never see. So settle it: is creativity what moves the most people, or what moves them most — and which of you is actually scared the other one's right?</span></div>
+  <button class="ringbtn"><span>Score the bout</span><span class="arr">▾</span></button>
+  <div class="verdict"><div class="vbody">
+    <div class="decree">Sobhani def. Mann — on the harder craft</div>
+    <div class="method">Method · split, won the room</div>
+    <div class="cards"><span class="jc">Argument <b class="b">Sobhani</b></span><span class="jc">Forcing Q <b class="r">Mann</b></span><span class="jc">The Room <b class="b">Sobhani</b></span></div>
+    <p class="why">Mann answers the forcing question better — he can put a billion real humans on the table and ask Sobhani to match it, and "they'll never see your Lion" is a punch that lands clean. He genuinely wins the half of the argument about <i>scale</i>, and he should: nobody in that room reaches what he reaches. But the room is the room — a creativity festival, scoring craft, packed with people whose entire identity is that there's a difference between attention and art. Sobhani doesn't have to out-reach him; she has to make the case that moving someone <i>deeply</i> is a harder, rarer thing than moving them briefly, and she's spent a career proving it. <b>Mann owns the scoreboard; Sobhani owns the definition</b> — and at Cannes, the definition is the home crowd. The honest read: he wins the internet and she wins the building, and both of them leave quietly afraid the other one is the future.</p>
+    <span class="conf bet">A genuine bet · the real two-culture war</span>
+  </div></div>
+</div></section>
+
+<footer><div class="wrap">
+  <p class="sig">★ Cage Match Cannes · the main card ★</p>
+</div></footer>
+
+<script>
+  const fights=[...document.querySelectorAll('.fight')];
+  fights.forEach(fz=>{
+    const btn=fz.querySelector('.ringbtn');
+    const side=fz.dataset.win;
+    btn.addEventListener('click',()=>{
+      const opening=!fz.classList.contains('open');
+      fz.classList.toggle('open');
+      const corner=fz.querySelector('.corner.'+side);
+      corner.classList.toggle('winner',opening);
+      corner.querySelector('.belt').classList.toggle('show',opening);
+      btn.querySelector('span').textContent=opening?'Hide verdict':'Score the bout';
+    });
+  });
+  document.getElementById('revealAll').addEventListener('click',()=>{
+    const anyClosed=fights.some(f=>!f.classList.contains('open'));
+    fights.forEach(f=>{
+      const open=f.classList.contains('open');
+      if((anyClosed&&!open)||(!anyClosed&&open)) f.querySelector('.ringbtn').click();
+    });
+  });
+</script>
+</body>
+</html>
