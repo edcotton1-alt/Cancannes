@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAGE MATCH CANNES · THE ORDER PAPER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Spline+Sans+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#08070a;--ink-2:#100d12;--steel:#1a161d;--bone:#f6f2e8;--bone-dim:#c2bcae;
+    --gold:#f2c33d;--gold-deep:#9a7414;--blood:#d61f26;--blood-deep:#7d1116;
+    --red:#e8453c;--blue:#2f7ff0;--win:#56e89a;--win-deep:#1f8a55;--line:#2c2630;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,.012) 0 2px, transparent 2px 9px),
+      radial-gradient(1100px 520px at 50% -8%, #2a1d22 0%, transparent 55%),
+      var(--ink);
+    color:var(--bone);font-family:'Oswald',sans-serif;font-weight:300;line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  .anton{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.86}
+
+  .hero{text-align:center;padding:54px 0 34px;border-bottom:2px solid var(--blood)}
+  .promo{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--blood);margin-bottom:14px}
+  .hero h1{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(46px,13vw,156px);line-height:.78;color:var(--bone);text-shadow:0 0 1px #000,4px 4px 0 var(--blood-deep)}
+  .hero h1 em{display:block;font-style:normal;color:var(--gold);text-shadow:0 0 1px #000,4px 4px 0 var(--gold-deep)}
+  .hero .strap{margin-top:18px;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(14px,2.3vw,22px);letter-spacing:.03em;color:var(--bone)}
+  .hero .sub{margin-top:14px;color:var(--bone-dim);font-size:16px;max-width:60ch;margin-left:auto;margin-right:auto;font-weight:400}
+  .hero .meta{margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .hero .meta span{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bone-dim);border:1px solid var(--line);padding:6px 12px}
+  .hero .meta b{color:var(--gold)}
+  .reveal-all{margin:24px auto 0;display:inline-flex;align-items:center;gap:9px;background:var(--blood);border:none;color:#fff;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:15px;letter-spacing:.05em;padding:13px 26px;cursor:pointer;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%)}
+  .reveal-all:hover{background:var(--red)}
+
+  .ticker{border-bottom:1px solid var(--line);background:var(--ink-2);padding:16px 0}
+  .ticker .wrap{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+  .ticker div{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--bone-dim)}
+  .ticker b{color:var(--gold);font-weight:500}
+
+  .ednote{border-bottom:1px solid var(--line);padding:22px 0}
+  .ednote .wrap{max-width:760px}
+  .ednote p{color:var(--bone-dim);font-size:15px;line-height:1.65;font-weight:400;text-align:center}
+  .ednote p b{color:var(--bone);font-weight:500}
+
+  .fight{padding:50px 0 10px;border-bottom:1px solid var(--line)}
+  .fline{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .fline .num{font-family:'Anton',sans-serif;font-size:clamp(30px,6vw,58px);color:var(--blood);line-height:1}
+  .fline .faultline{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+  .ftitle{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(28px,6vw,62px);line-height:.9;color:var(--bone);margin-bottom:6px}
+  .ftitle em{font-style:normal;color:var(--blood)}
+  .why-this{color:var(--bone-dim);font-size:16px;font-weight:400;max-width:70ch;line-height:1.6;margin-bottom:26px}
+  .why-this b{color:var(--bone);font-weight:500}
+
+  .tape{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;border:1px solid var(--line);background:linear-gradient(180deg,var(--steel),var(--ink-2));position:relative}
+  .tape::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line)}
+  @media(max-width:680px){.tape::before{display:none}}
+  .corner{padding:22px 22px;display:flex;flex-direction:column;gap:6px;transition:background .45s ease}
+  .corner.red{border-top:3px solid var(--red)}
+  .corner.blue{border-top:3px solid var(--blue);text-align:right;align-items:flex-end}
+  .ctag{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+  .corner.red .ctag{color:var(--red)} .corner.blue .ctag{color:var(--blue)}
+  .name{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(22px,3.4vw,34px);line-height:.92;color:#fff;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .corner.blue .name{flex-direction:row-reverse}
+  .belt{display:none;font-family:'Anton',sans-serif;font-size:12px;letter-spacing:.06em;color:#06210f;background:var(--win);padding:2px 9px}
+  .affil{font-size:15px;color:var(--bone-dim);font-weight:400;line-height:1.3}
+  .stance{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+  .record{font-family:'Spline Sans Mono',monospace;font-size:11px;color:var(--bone-dim);margin-top:6px;letter-spacing:.02em}
+  .center{display:flex;align-items:center;justify-content:center;padding:0 10px;min-width:70px;position:relative;z-index:2}
+  .center .vs{font-family:'Anton',sans-serif;font-size:clamp(24px,4vw,40px);color:var(--blood);text-shadow:1px 1px 0 #000}
+
+  .undercard{border:1px solid var(--line);border-top:none;padding:16px 22px;display:flex;gap:14px;align-items:baseline;background:rgba(0,0,0,.28)}
+  .undercard .lbl{font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);flex:none;padding-top:3px}
+  .undercard .q{font-size:17px;color:var(--bone);font-weight:400;flex:1;line-height:1.45}
+
+  .ringbtn{width:100%;border:none;cursor:pointer;background:var(--blood-deep);color:#fff;font-family:'Anton',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.12em;padding:13px;transition:background .2s ease;display:flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line);border-top:none}
+  .ringbtn:hover{background:var(--blood)}
+  .ringbtn:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+  .ringbtn .arr{transition:transform .3s ease;font-family:'Oswald',sans-serif}
+
+  .verdict{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.16,1,.3,1)}
+  .fight.open .verdict{max-height:900px}
+  .fight.open .ringbtn{background:#0c2d18;color:var(--win)}
+  .fight.open .ringbtn .arr{transform:rotate(180deg)}
+  .fight.open .corner.winner{background:rgba(86,232,154,.07)}
+  .fight.open .belt.show{display:inline-block;animation:slam .35s cubic-bezier(.2,1.4,.4,1)}
+  @keyframes slam{0%{transform:scale(1.8) rotate(-4deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+
+  .vbody{padding:22px 22px 26px;border:1px solid var(--win-deep);border-top:none;background:rgba(8,7,10,.55)}
+  .decree{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(20px,3vw,32px);color:var(--win);line-height:.95;margin-bottom:5px}
+  .method{font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:16px}
+  .cards{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .jc{font-family:'Spline Sans Mono',monospace;font-size:11.5px;border:1px solid var(--line);padding:7px 11px;color:var(--bone-dim);background:rgba(0,0,0,.35)}
+  .jc b{font-weight:500} .jc .r{color:#ff6b62} .jc .b{color:#6aa8ff} .jc .s{color:var(--gold)}
+  .why{font-size:16px;color:var(--bone);line-height:1.65;font-weight:400;margin-bottom:14px}
+  .why b{color:var(--win);font-weight:500} .why i{color:#fff;font-style:italic}
+  .conf{display:inline-block;font-family:'Spline Sans Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border:1px solid currentColor}
+  .conf.anchor{color:#6fa6ee} .conf.extend{color:var(--gold)} .conf.bet{color:var(--red)}
+
+  @media(max-width:680px){
+    .tape{grid-template-columns:1fr}
+    .corner.blue{text-align:left;align-items:flex-start;border-top:none;border-left:3px solid var(--blue)}
+    .corner.red{border-top:none;border-left:3px solid var(--red)}
+    .corner.blue .name{flex-direction:row}
+    .center{padding:8px 22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .fight.open .verdict{max-height:1400px}
+  }
+
+  footer{margin-top:6px;padding:40px 0 64px;text-align:center}
+  footer .sig{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:.2em;color:var(--gold)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="promo">Casting Director · Cage Match Cannes · the order paper</div>
+    <h1 class="anton">Five<em>Motions</em></h1>
+    <div class="strap">The debates Cannes 2026 should have held</div>
+    <p class="sub">Five hundred speakers came to Cannes. We boiled them down to five motions, each with a speaker for, a speaker against, and a House that votes it up or down.</p>
+    <div class="meta">
+      <span><b>5</b> motions</span>
+      <span><b>10</b> speakers</span>
+      <span>the House divides · tap to see the vote</span>
+    </div>
+    <button class="reveal-all" id="revealAll"><i class="arr"></i> Reveal every division</button>
+  </div>
+</div>
+
+<div class="ticker"><div class="wrap">
+  <div><b>The Motion</b> · what the House debates</div>
+  <div><b>For &amp; Against</b> · the speakers' cases</div>
+  <div><b>The Division</b> · how the House votes</div>
+  <div style="color:var(--bone-dim)">Results are predictions · tap to divide the House</div>
+</div></div>
+
+<div class="ednote"><div class="wrap">
+  <p><b>A note on the verdicts.</b> None of these debates happened. Each division is a prediction, our best read of how a room of Cannes delegates would actually vote, not a result. We've argued both sides as fairly as we can and called each winner honestly, but every one is a bet. Read them as an argument to push back on, not a scoreboard. If you'd vote the other way, you're probably right about at least one.</p>
+</div></div>
+
+<!-- FIGHT 1 -->
+<section class="fight" data-win="blue"><div class="wrap">
+  <div class="fline"><span class="num anton">01</span><span class="faultline">Motion · The Machine</span></div>
+  <h2 class="ftitle">"This House believes AI can build a brand <em>on its own</em>."</h2>
+  <p class="why-this">The defining argument of the year, put to the House. <b>For the motion,</b> Demis Hassabis, who built the machine and believes it can now originate the work, not just assist it. <b>Against,</b> Marc Pritchard, who spends $10bn a year and insists a brand is the one thing AI can't make without a human. The man who built the future against the most powerful brand-builder alive, on one sentence the House must vote up or down.</p>
+  <div class="tape">
+    <div class="corner red"><span class="ctag">Proposition · For</span><div class="name"><span class="belt">NOES</span>Demis Hassabis</div><div class="affil">Google DeepMind · Co-founder &amp; CEO</div><div class="stance">The Machine Can Make Meaning</div><div class="record">Nobel laureate · builds the future</div></div>
+    <div class="center"><span class="vs">VS</span></div>
+    <div class="corner blue"><span class="ctag">Opposition · Against</span><div class="name">Marc Pritchard<span class="belt">NOES</span></div><div class="affil">P&G · Chief Brand Officer</div><div class="stance">A Brand Needs a Human</div><div class="record">World's largest ad budget · buys the future</div></div>
+  </div>
+  <div class="undercard"><span class="lbl">The Clash</span><span class="q">Hassabis's case: the machine no longer just assists, it originates, and a model that can generate a brand's voice, look and story can build the brand itself. Pritchard's reply: it can make a million ads by lunch and still not one brand, because a brand is meaning, and meaning needs a human to mean it. The House must decide what a brand is, and whether AI can make one alone.</span></div>
+  <button class="ringbtn"><span>Divide the House</span><span class="arr">▾</span></button>
+  <div class="verdict"><div class="vbody">
+    <div class="decree">Motion falls · Ayes 38%, Noes 62%</div>
+    <div class="method">The House sides with Pritchard</div>
+    <div class="cards"><span class="jc">Better case <b class="b">Pritchard</b></span><span class="jc">Bolder claim <b class="r">Hassabis</b></span><span class="jc">The Division <b class="b">Noes</b></span></div>
+    <p class="why">Hassabis makes the bolder claim, and a year ago it would have sounded like science fiction. But "on its own" is the trap in the motion. The moment Pritchard asks who decided the brand should mean <i>this</i> and not something else, Hassabis has to admit a human still sets the brief, picks the winner, and says what it stands for. The machine builds; it doesn't yet choose. Pritchard doesn't deny AI's power, he just locates the one human job it can't take. <b>Hassabis wins the future. Pritchard wins the vote.</b></p>
+    <span class="conf extend">Predicted division · extended from worldview</span>
+  </div></div>
+</div></section>
+
+<!-- FIGHT 2 -->
+<section class="fight" data-win="blue"><div class="wrap">
+  <div class="fline"><span class="num anton">02</span><span class="faultline">Motion · The Law</span></div>
+  <h2 class="ftitle">"This House believes award-winning work <em>never</em> moves the masses."</h2>
+  <p class="why-this">The motion that puts Cannes itself on trial. <b>For the motion,</b> Mark Penn, the pollster behind decades of public-opinion surveys, who can show how little of this award-winning work actually moves the people it's meant for. <b>Against,</b> Sir John Hegarty, the BBH founder who has spent 40 years arguing that one great idea is worth more than any amount of data. Data against instinct, and the House must pick a side.</p>
+  <div class="tape">
+    <div class="corner red"><span class="ctag">Proposition · For</span><div class="name"><span class="belt">NOES</span>Mark Penn</div><div class="affil">Stagwell · Chairman &amp; CEO</div><div class="stance">The Populace</div><div class="record">Polled nations · counts the public</div></div>
+    <div class="center"><span class="vs">VS</span></div>
+    <div class="corner blue"><span class="ctag">Opposition · Against</span><div class="name">Sir John Hegarty<span class="belt">NOES</span></div><div class="affil">BBH · Co-founder</div><div class="stance">Precision Over Reach</div><div class="record">40 years · moves the right few, not the many</div></div>
+  </div>
+  <div class="undercard"><span class="lbl">The Clash</span><span class="q">Penn's case: the polling is brutal. The work this festival crowns may win the room, but it never moves the millions outside it. Hegarty's reply: moving the masses was never the job. Great advertising moves a specific audience with precision, and the best work is awarded because it does exactly that. The House must choose whether to judge advertising by how many it moves or how precisely it moves them.</span></div>
+  <button class="ringbtn"><span>Divide the House</span><span class="arr">▾</span></button>
+  <div class="verdict"><div class="vbody">
+    <div class="decree">Motion falls · Ayes 44%, Noes 56%</div>
+    <div class="method">The House sides with Hegarty</div>
+    <div class="cards"><span class="jc">Better case <b class="b">Hegarty</b></span><span class="jc">Best data <b class="r">Penn</b></span><span class="jc">The Division <b class="b">Noes</b></span></div>
+    <p class="why">Penn brings the better numbers, and they're real: most of this work never troubles the wider public. But Hegarty doesn't dispute the data, he disputes the target. Advertising was never built to move everyone, it was built to move someone specific, and the work this festival rewards tends to do that with rare precision. <b>Penn proves the masses didn't notice. Hegarty proves they were never the point.</b></p>
+    <span class="conf bet">Predicted division · Penn's data is real, but the room buys the rebuttal</span>
+  </div></div>
+</div></section>
+
+<!-- FIGHT 3 -->
+<section class="fight" data-win="red"><div class="wrap">
+  <div class="fline"><span class="num anton">03</span><span class="faultline">Motion · The Soul</span></div>
+  <h2 class="ftitle">"This House believes a brand the world loves <em>owes</em> the world more."</h2>
+  <p class="why-this">Both speakers believe brand love is the most powerful force in marketing. They divide on what it demands in return. <b>For the motion,</b> Stella McCartney, who holds that love is borrowed trust, and the more you're adored, the more you owe. <b>Against,</b> Manolo Arroyo, who runs the most-loved brand on earth and sees that love as permission he's already earned. One treats being adored as a debt, the other as a reward.</p>
+  <div class="tape">
+    <div class="corner red"><span class="ctag">Proposition · For</span><div class="name"><span class="belt">AYES</span>Stella McCartney</div><div class="affil">Founder &amp; Creative Director</div><div class="stance">Love Is a Debt</div><div class="record">Built devotion without the dirty shortcut</div></div>
+    <div class="center"><span class="vs">VS</span></div>
+    <div class="corner blue"><span class="ctag">Opposition · Against</span><div class="name">Manolo Arroyo<span class="belt">AYES</span></div><div class="affil">The Coca-Cola Company · Global CMO</div><div class="stance">Love Is a Licence</div><div class="record">World's most loved · world's most audited</div></div>
+  </div>
+  <div class="undercard"><span class="lbl">The Clash</span><span class="q">McCartney's case: a billion people trust your brand, and that trust is a debt. The plastic isn't a footnote, it's a betrayal of the love itself. Arroyo's reply: Coke doesn't ignore that responsibility, it invests in recycling, reduction and reuse at a scale few companies attempt, and the honest question is whether that's enough, not whether the company cares. The House decides whether being adored is permission or obligation.</span></div>
+  <button class="ringbtn"><span>Divide the House</span><span class="arr">▾</span></button>
+  <div class="verdict"><div class="vbody">
+    <div class="decree">Motion carries · Ayes 71%, Noes 29%</div>
+    <div class="method">The House sides with McCartney, decisively</div>
+    <div class="cards"><span class="jc">Better case <b class="r">McCartney</b></span><span class="jc">Hardest brief <b class="b">Arroyo</b></span><span class="jc">The Division <b class="r">Ayes</b></span></div>
+    <p class="why">Arroyo makes the fair case: Coke acts on its responsibility, and few companies his size do more. It's a real argument. But McCartney has the harder answer. She built a brand the world loves without the plastic in the first place, which means "doing a lot" isn't proof of doing enough. Arroyo can show effort. He can't show her result. <b>Arroyo says Coke does enough. The House decides it doesn't.</b></p>
+    <span class="conf extend">Predicted division · extended from worldview</span>
+  </div></div>
+</div></section>
+
+<!-- FIGHT 4 -->
+<section class="fight" data-win="blue"><div class="wrap">
+  <div class="fline"><span class="num anton">04</span><span class="faultline">Motion · The Crowd</span></div>
+  <h2 class="ftitle">"This House believes audiences trust a creator more than <em>any brand</em>."</h2>
+  <p class="why-this">Not a fight about reach, but about trust. <b>For the motion,</b> Dhar Mann, whose viewers feel they know him personally, a closeness no media buy can manufacture. <b>Against,</b> Chaka Sobhani, who runs creative for one of the world's most awarded networks and argues a great brand earns a deeper, longer trust than a single person. The personal bond against the institution.</p>
+  <div class="tape">
+    <div class="corner red"><span class="ctag">Proposition · For</span><div class="name"><span class="belt">NOES</span>Dhar Mann</div><div class="affil">Dhar Mann Studios · Founder</div><div class="stance">The Creator</div><div class="record">Billions of views · a direct line to millions</div></div>
+    <div class="center"><span class="vs">VS</span></div>
+    <div class="corner blue"><span class="ctag">Opposition · Against</span><div class="name">Chaka Sobhani<span class="belt">NOES</span></div><div class="affil">TBWA\Worldwide · Global Chief Creative Officer</div><div class="stance">The Institution</div><div class="record">Runs the craft · builds brands to last</div></div>
+  </div>
+  <div class="undercard"><span class="lbl">The Clash</span><span class="q">Mann's case: people trust a person, not a logo. His viewers believe him the way they'd believe a friend, and no brand can buy that. Sobhani's reply: a creator's trust rests on one person and their feed, while a brand's is earned by an organization delivering a product that works, day after day, for years. One is a feeling. The other is a promise kept at scale. The House decides who the public really trusts: the creator, or the brand.</span></div>
+  <button class="ringbtn"><span>Divide the House</span><span class="arr">▾</span></button>
+  <div class="verdict"><div class="vbody">
+    <div class="decree">Motion falls · Ayes 44%, Noes 56%</div>
+    <div class="method">The House sides with Sobhani</div>
+    <div class="cards"><span class="jc">Better case <b class="b">Sobhani</b></span><span class="jc">Sharpest point <b class="r">Mann</b></span><span class="jc">The Division <b class="b">Noes</b></span></div>
+    <p class="why">Mann has the louder truth: his viewers feel something for him no brand can buy, and he's right that it's real. But Sobhani has the deeper one, and it's about what the trust is built on. A creator's trust is earned in a feed, performance by performance. A brand's trust is earned by an organization of thousands delivering a product that works, every day, for years. One is a feeling people have about a person. The other is a promise kept so many times it becomes reliable, and a brand that stops keeping it goes out of business. <b>Mann has the bond. Sobhani has the proof. The room votes for the proof.</b></p>
+    <span class="conf extend">Predicted division · the rare night the room is simply right</span>
+  </div></div>
+</div></section>
+
+<!-- FIGHT 5 -->
+<section class="fight" data-win="blue"><div class="wrap">
+  <div class="fline"><span class="num anton">05</span><span class="faultline">Motion · The Operator</span></div>
+  <h2 class="ftitle">"This House believes data <em>always</em> beats culture."</h2>
+  <p class="why-this">Two CEOs who made opposite bets with real money. <b>For the motion,</b> David Sandström, who rebuilt Klarna into a factory that runs AI for 80% of its copy and trusts the numbers over any hunch. <b>Against,</b> Richard Dickson, who bet Gap's whole turnaround on cultural instinct no dashboard would have backed, the Young Miko campaign, the Victoria Beckham return, the choreographed denim, and moved both the stock and the culture. Data against the gut, settled by one vote.</p>
+  <div class="tape">
+    <div class="corner red"><span class="ctag">Proposition · For</span><div class="name"><span class="belt">NOES</span>David Sandström</div><div class="affil">Klarna · CMO</div><div class="stance">Trust the Numbers</div><div class="record">80% AI copy · the data doesn't lie</div></div>
+    <div class="center"><span class="vs">VS</span></div>
+    <div class="corner blue"><span class="ctag">Opposition · Against</span><div class="name">Richard Dickson<span class="belt">NOES</span></div><div class="affil">Gap Inc. · President &amp; CEO</div><div class="stance">Trust the Culture</div><div class="record">Bet $15bn on instinct, and won</div></div>
+  </div>
+  <div class="undercard"><span class="lbl">The Clash</span><span class="q">Sandström's case: instinct is unreliable and expensive, the data is right far more often than any director's gut, and a model that watches a million choices knows the audience better than a person ever could. Dickson's reply: no dataset told Gap to bet on Young Miko, because data can only rank what already exists, and his turnaround came from a cultural read the numbers would have killed. The House decides whether the gut still beats the machine when it matters most.</span></div>
+  <button class="ringbtn"><span>Divide the House</span><span class="arr">▾</span></button>
+  <div class="verdict"><div class="vbody">
+    <div class="decree">Motion falls · Ayes 43%, Noes 57%</div>
+    <div class="method">The House sides with Dickson</div>
+    <div class="cards"><span class="jc">Better case <b class="s">Even</b></span><span class="jc">Sank the motion <b class="b">Dickson</b></span><span class="jc">The Division <b class="b">Noes</b></span></div>
+    <p class="why">Sandström makes a strong case, and most of the time he's correct: data does beat instinct, and the AI factory he built at Klarna proves it. But the motion says <i>always</i>, and that single word is what sinks him. Data can judge an idea, but it can't dream one up, and Dickson's Gap turnaround came from an instinct no numbers would have supported. One exception is all it takes. <b>In a boardroom the motion carries. In this room it falls.</b></p>
+    <span class="conf bet">Predicted division · a boardroom would vote the other way</span>
+  </div></div>
+</div></section>
+
+<footer><div class="wrap">
+  <p class="sig">★ Cage Match Cannes · the order paper ★</p>
+</div></footer>
+
+<script>
+  const fights=[...document.querySelectorAll('.fight')];
+  fights.forEach(fz=>{
+    const btn=fz.querySelector('.ringbtn');
+    const side=fz.dataset.win;
+    btn.addEventListener('click',()=>{
+      const opening=!fz.classList.contains('open');
+      fz.classList.toggle('open');
+      const corner=fz.querySelector('.corner.'+side);
+      corner.classList.toggle('winner',opening);
+      corner.querySelector('.belt').classList.toggle('show',opening);
+      btn.querySelector('span').textContent=opening?'Hide verdict':'Score the bout';
+    });
+  });
+  document.getElementById('revealAll').addEventListener('click',()=>{
+    const anyClosed=fights.some(f=>!f.classList.contains('open'));
+    fights.forEach(f=>{
+      const open=f.classList.contains('open');
+      if((anyClosed&&!open)||(!anyClosed&&open)) f.querySelector('.ringbtn').click();
+    });
+  });
+</script>
+</body>
+</html>
